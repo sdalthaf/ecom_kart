@@ -1,0 +1,12 @@
+---
+development:
+  dialect: "sqlite3"
+  database: /Users/asyed/amdevelopers/ecom_kart/ecom_kart_ecom_kart_development.sqlite
+
+test:
+  dialect: "sqlite3"
+  database: /Users/asyed/amdevelopers/ecom_kart/ecom_kart_ecom_kart_test.sqlite
+
+production:
+  dialect: "sqlite3"
+  database: /Users/asyed/amdevelopers/ecom_kart/ecom_kart_ecom_kart_production.sqlite
