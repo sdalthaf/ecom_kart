@@ -1,0 +1,52 @@
+<div class="py-4 mb-2">
+  <h3 class="d-inline-block">Product Details</h3>
+
+  <div class="float-end">
+    <%= linkTo(adminProductsPath(), {class: "btn btn-info"}) { %>
+      Back to all Products
+    <% } %>
+    <%= linkTo(editAdminProductPath({ product_id: product.ID }), {class: "btn btn-warning", body: "Edit"}) %>
+    <%= linkTo(adminProductPath({ product_id: product.ID }), {class: "btn btn-danger", "data-method": "DELETE", "data-confirm": "Are you sure?", body: "Destroy"}) %>
+  </div>
+</div>
+
+
+
+<ul class="list-group mb-2 ">
+
+
+  <li class="list-group-item pb-1">
+    <label class="small d-block">Name</label>
+    <p class="d-inline-block"><%= product.Name %></p>
+  </li>
+
+
+
+  <li class="list-group-item pb-1">
+    <label class="small d-block">Price</label>
+    <p class="d-inline-block"><%= product.Price %></p>
+  </li>
+
+
+
+  <li class="list-group-item pb-1">
+    <label class="small d-block">Description</label>
+    <p class="d-inline-block"><%= product.Description %></p>
+  </li>
+
+
+
+  <li class="list-group-item pb-1">
+    <label class="small d-block">Stock</label>
+    <p class="d-inline-block"><%= product.Stock %></p>
+  </li>
+
+
+
+  <li class="list-group-item pb-1">
+    <label class="small d-block">CategoryID</label>
+    <p class="d-inline-block"><%= product.CategoryID %></p>
+  </li>
+
+
+</ul>

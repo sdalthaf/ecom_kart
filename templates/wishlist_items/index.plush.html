@@ -1,0 +1,33 @@
+<div class="py-4 mb-2">
+  <h3 class="d-inline-block">WishlistItems</h3>
+  <div class="float-end">
+    <%= linkTo(newWishlistItemsPath(), {class: "btn btn-primary"}) { %>
+      Create New WishlistItem
+    <% } %>
+  </div>
+</div>
+
+<table class="table table-hover table-bordered">
+  <thead class="thead-light">
+    <th>WishlistID</th><th>ProductID</th>
+    <th>&nbsp;</th>
+  </thead>
+  <tbody>
+    <%= for (wishlistItem) in wishlistItems { %>
+      <tr>
+        <td class="align-middle"><%= wishlistItem.WishlistID %></td><td class="align-middle"><%= wishlistItem.ProductID %></td>
+        <td>
+          <div class="float-end">
+            <%= linkTo(wishlistItemPath({ wishlist_item_id: wishlistItem.ID }), {class: "btn btn-info", body: "View"}) %>
+            <%= linkTo(editWishlistItemPath({ wishlist_item_id: wishlistItem.ID }), {class: "btn btn-warning", body: "Edit"}) %>
+            <%= linkTo(wishlistItemPath({ wishlist_item_id: wishlistItem.ID }), {class: "btn btn-danger", "data-method": "DELETE", "data-confirm": "Are you sure?", body: "Destroy"}) %>
+          </div>
+        </td>
+      </tr>
+    <% } %>
+  </tbody>
+</table>
+
+<div class="text-center">
+  <%= paginator(pagination) %>
+</div>

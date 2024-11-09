@@ -1,0 +1,8 @@
+<div class="py-4 mb-2">
+  <h3 class="d-inline-block">Edit Category</h3>
+</div>
+
+<%= formFor(category, {action: adminCategoryPath({ category_id: category.ID }), method: "PUT"}) { %>
+  <%= partial("categories/form.html") %>
+  <%= linkTo(adminCategoryPath({ category_id: category.ID }), {class: "btn btn-warning", "data-confirm": "Are you sure?", body: "Cancel"}) %>
+<% } %>

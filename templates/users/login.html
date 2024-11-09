@@ -1,0 +1,43 @@
+<div class="row mt-3 justify-content-center">
+  <div class="col-lg-6 col-md-8 col-sm-10">
+      <div class="card">
+          <div class="card-header">
+              <h3>Login</h3>
+              <!-- Check for error flashes -->
+              <% if (flashes.danger) { %>
+                <p><%= flashes.danger %></p>
+              <% } %>
+          </div>
+          <div class="card-body">
+              <form action="/login" method="POST">
+                <input name="authenticity_token" type="hidden" value="<%= authenticity_token %>">
+
+                  <div class="form-group">
+                      <label for="email">Email address</label>
+                      <input type="email" name="email" class="form-control" id="email" required>
+                  </div>
+                  <div class="form-group">
+                      <label for="pwd1">Password</label>
+                      <input name="password" type="password" class="form-control" id="pwd1" required>
+                  </div>
+                  <button type="submit" class="btn btn-primary btn-block">Login</button>
+              </form>
+          </div>
+          <div>
+            New User? <a class="text-dark mb-2" href="/register"><i class="fa fa-angle-right mr-2"></i>Regiser Here</a>
+        </div>
+      </div>
+  </div>
+</div>
+<!-- JavaScript Libraries -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+<script src="/assets/lib/easing/easing.min.js"></script>
+<script src="/assets/lib/owlcarousel/owl.carousel.min.js"></script>
+
+<!-- Contact Javascript File -->
+<script src="/assets/mail/jqBootstrapValidation.min.js"></script>
+<script src="/assets/mail/contact.js"></script>
+
+<!-- Template Javascript -->
+<script src="/assets/mail/main.js"></script>

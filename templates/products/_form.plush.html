@@ -1,0 +1,10 @@
+<%= f.InputTag("Name") %>
+<%= f.InputTag("Price") %>
+<%= f.TextAreaTag("Description", {rows: 10}) %>
+<%= f.InputTag("Stock") %>
+
+<!--<%= f.InputTag("CategoryID") %>-->
+<!-- Category Dropdown -->
+<%= f.SelectTag("CategoryID", {options: categories_for_select}) %>
+
+<button class="btn btn-success" role="submit">Save</button>

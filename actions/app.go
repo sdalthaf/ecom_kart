@@ -65,8 +65,29 @@ func App() *buffalo.App {
 		// Setup and use translations:
 		app.Use(translations())
 
+		app.Use(LoadCartAndWishlist)
 		app.GET("/", HomeHandler)
+		app.GET("/shop", ShopHandler)
+		app.GET("/contact", ContactHandler)
+		app.GET("/detail", DetailHandler)
+		app.GET("/cart", CartHandler)
+		app.GET("/checkout", CheckoutHandler)
+		app.GET("/login", LoginPage)
+		app.POST("/login", LoginHandler)
+		app.GET("/logout", LogoutHandler)
+		app.GET("/account", AccountHandler)
+		auth := app.Group("/users")
+		auth.GET("/register", UsersRegisterPost)
+		app.GET("/register", UsersRegisterGet)
 
+		admin := app.Group("/admin")
+		admin.Use(AuthorizeAdmin)
+		admin.Resource("/products", ProductsResource{})
+		admin.Resource("/categories", CategoriesResource{})
+		app.Resource("/carts", CartsResource{})
+		app.Resource("/cart_items", CartItemsResource{})
+		app.Resource("/wishlists", WishlistsResource{})
+		app.Resource("/wishlist_items", WishlistItemsResource{})
 		app.ServeFiles("/", http.FS(public.FS())) // serve files from the public directory
 	})
 

@@ -1,0 +1,31 @@
+<div class="py-4 mb-2">
+  <h3 class="d-inline-block">WishlistItem Details</h3>
+
+  <div class="float-end">
+    <%= linkTo(wishlistItemsPath(), {class: "btn btn-info"}) { %>
+      Back to all WishlistItems
+    <% } %>
+    <%= linkTo(editWishlistItemPath({ wishlist_item_id: wishlistItem.ID }), {class: "btn btn-warning", body: "Edit"}) %>
+    <%= linkTo(wishlistItemPath({ wishlist_item_id: wishlistItem.ID }), {class: "btn btn-danger", "data-method": "DELETE", "data-confirm": "Are you sure?", body: "Destroy"}) %>
+  </div>
+</div>
+
+
+
+<ul class="list-group mb-2 ">
+
+
+  <li class="list-group-item pb-1">
+    <label class="small d-block">WishlistID</label>
+    <p class="d-inline-block"><%= wishlistItem.WishlistID %></p>
+  </li>
+
+
+
+  <li class="list-group-item pb-1">
+    <label class="small d-block">ProductID</label>
+    <p class="d-inline-block"><%= wishlistItem.ProductID %></p>
+  </li>
+
+
+</ul>

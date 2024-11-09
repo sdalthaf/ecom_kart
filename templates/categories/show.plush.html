@@ -1,0 +1,31 @@
+<div class="py-4 mb-2">
+  <h3 class="d-inline-block">Category Details</h3>
+
+  <div class="float-end">
+    <%= linkTo(adminCategoriesPath(), {class: "btn btn-info"}) { %>
+      Back to all Categories
+    <% } %>
+    <%= linkTo(editAdminCategoryPath({ category_id: category.ID }), {class: "btn btn-warning", body: "Edit"}) %>
+    <%= linkTo(adminCategoryPath({ category_id: category.ID }), {class: "btn btn-danger", "data-method": "DELETE", "data-confirm": "Are you sure?", body: "Destroy"}) %>
+  </div>
+</div>
+
+
+
+<ul class="list-group mb-2 ">
+
+
+  <li class="list-group-item pb-1">
+    <label class="small d-block">Name</label>
+    <p class="d-inline-block"><%= category.Name %></p>
+  </li>
+
+
+
+  <li class="list-group-item pb-1">
+    <label class="small d-block">Description</label>
+    <p class="d-inline-block"><%= category.Description %></p>
+  </li>
+
+
+</ul>

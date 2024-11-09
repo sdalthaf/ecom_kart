@@ -1,0 +1,8 @@
+<div class="py-4 mb-2">
+  <h3 class="d-inline-block">New CartItem</h3>
+</div>
+
+<%= formFor(cartItem, {action: cartItemsPath(), method: "POST"}) { %>
+  <%= partial("cart_items/form.html") %>
+  <%= linkTo(cartItemsPath(), {class: "btn btn-warning", "data-confirm": "Are you sure?", body: "Cancel"}) %>
+<% } %>

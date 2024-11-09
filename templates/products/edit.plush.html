@@ -1,0 +1,12 @@
+<div class="py-4 mb-2">
+  <h3 class="d-inline-block">Edit Product</h3>
+</div>
+
+<%= formFor(product, {action: adminProductPath({ product_id: product.ID }), method: "PUT"}) { %>
+  <%= f.InputTag("Name") %>
+  <%= f.InputTag("Price") %>
+  <%= f.TextAreaTag("Description", {rows: 10}) %>
+  <%= f.InputTag("Stock") %>
+  <button class="btn btn-success" role="submit">Save</button>
+  <%= linkTo(adminProductsPath({ product_id: product.ID }), {class: "btn btn-warning", "data-confirm": "Are you sure?", body: "Cancel"}) %>
+<% } %>

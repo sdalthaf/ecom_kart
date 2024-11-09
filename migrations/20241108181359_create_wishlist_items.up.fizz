@@ -1,0 +1,6 @@
+create_table("wishlist_items") {
+	t.Column("id", "uuid", {primary: true})
+	t.Column("wishlist_id", "uuid", {})
+	t.Column("product_id", "uuid", {})
+	t.Timestamps()
+}

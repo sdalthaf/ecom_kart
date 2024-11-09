@@ -1,0 +1,24 @@
+<div class="py-4 mb-2">
+  <h3 class="d-inline-block">Cart Details</h3>
+
+  <div class="float-end">
+    <%= linkTo(cartsPath(), {class: "btn btn-info"}) { %>
+      Back to all Carts
+    <% } %>
+    <%= linkTo(editCartPath({ cart_id: cart.ID }), {class: "btn btn-warning", body: "Edit"}) %>
+    <%= linkTo(cartPath({ cart_id: cart.ID }), {class: "btn btn-danger", "data-method": "DELETE", "data-confirm": "Are you sure?", body: "Destroy"}) %>
+  </div>
+</div>
+
+
+
+<ul class="list-group mb-2 ">
+
+
+  <li class="list-group-item pb-1">
+    <label class="small d-block">UserID</label>
+    <p class="d-inline-block"><%= cart.UserID %></p>
+  </li>
+
+
+</ul>

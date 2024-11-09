@@ -1,0 +1,6 @@
+- id: "cart.created.success"
+  translation: "Cart was successfully created."
+- id: "cart.updated.success"
+  translation: "Cart was successfully updated."
+- id: "cart.destroyed.success"
+  translation: "Cart was successfully destroyed."

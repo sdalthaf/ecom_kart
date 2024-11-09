@@ -1,0 +1,8 @@
+<div class="py-4 mb-2">
+  <h3 class="d-inline-block">Edit WishlistItem</h3>
+</div>
+
+<%= formFor(wishlistItem, {action: wishlistItemPath({ wishlist_item_id: wishlistItem.ID }), method: "PUT"}) { %>
+  <%= partial("wishlist_items/form.html") %>
+  <%= linkTo(wishlistItemPath({ wishlist_item_id: wishlistItem.ID }), {class: "btn btn-warning", "data-confirm": "Are you sure?", body: "Cancel"}) %>
+<% } %>
