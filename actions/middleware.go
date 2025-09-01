@@ -48,7 +48,8 @@ func LoadCartAndWishlist(next buffalo.Handler) buffalo.Handler {
 	return func(c buffalo.Context) error {
 		categories := &models.Categories{}
 
-		if err := models.DB.Q().All(categories); err == nil {
+		tx := c.Value("tx").(*pop.Connection)
+		if err := tx.All(categories); err == nil {
 			c.Set("categories", categories)
 		}
 
@@ -61,15 +62,18 @@ func LoadCartAndWishlist(next buffalo.Handler) buffalo.Handler {
 			}
 
 			// Fetch cart items with associated product details :=
-			if err := models.DB.Q().
-				InnerJoin("carts", "carts.id = cart_items.cart_id").
-				InnerJoin("products", "products.id = cart_items.product_id").
-				Where("carts.user_id = ?", userId).
-				All(&cartItems); err == nil {
+			query := `SELECT cart_items.* 
+          FROM cart_items
+          INNER JOIN carts ON carts.id = cart_items.cart_id
+          INNER JOIN products ON products.id = cart_items.product_id
+          WHERE carts.user_id = ?`
+
+			if err := models.DB.RawQuery(query, userId).All(&cartItems); err == nil {
 				c.Set("cartItems", cartItems)
 			} else {
-				fmt.Print(err)
+				fmt.Println("unable to fetch records:", err)
 			}
+
 			// Fetch wishlist items
 			if err := models.DB.Q().
 				InnerJoin("wishlists", "wishlists.id = wishlist_items.wishlist_id").
